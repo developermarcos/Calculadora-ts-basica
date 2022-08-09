@@ -1,0 +1,76 @@
+*{
+  padding: 0;
+  text-decoration: none;
+  margin: 0;
+  outline: 0;
+}
+h1{font-size: 3.2rem;}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.2rem;
+}
+.container{
+  max-width: 90%;
+  margin: auto;  
+}
+div.calculadora div.molde{
+  margin: 5% auto;
+  max-width: 50%;
+  display: block;
+  padding: 30px;
+  box-shadow: 0px 0px 12px -2px rgb(0 0 0);
+  border-radius: 10px;
+}
+div.calculadora > div.molde > div{
+  margin-top: 5%;
+}
+div.calculadora > div.molde > div > :nth-child(n){
+  display: block;
+}
+div.calculadora > div.molde > div > :nth-child(2n){
+  margin: 1% 0 2%;
+}
+div.calculadora > div.molde > div > label{
+  font-size: 1.6rem;
+}
+div.calculadora > div.molde > div > input{
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.3);
+  padding: 1% 0.5%;
+}
+div.calculadora > div.molde > div > select{
+  padding: 0.5%;
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.3);
+  box-sizing: content-box;
+}
+div.calculadora > div.molde > div > select > option{
+  padding: 0.5%;
+  height: 30px;
+}
+div.calculadora > div.molde > div > select > option:hover{
+  filter: brightness(0.3);
+}
+div.calculadora > div.molde > div > input[type=button]{
+  border: 2px solid rgba(0,0,0,0.3);
+  background: green;
+  padding: 2% 5%;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.6rem;
+}
+div.calculadora > div.molde > div > input[type=button]:hover{
+  cursor: pointer;
+}
+div.calculadora > div.molde > :nth-child(3){
+  display: flex;
+}
+div.calculadora > div.molde > :nth-child(3) > label,
+div.calculadora > div.molde > :nth-child(3) > p{
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.5%;
+}
