@@ -3,8 +3,12 @@ import { Calculadora } from "./Calculadora.js";
 //Data binding
 const btnCalcular = document.getElementById("btnCalcular") as HTMLInputElement;
 const txtResultado = document.getElementById("resultado") as HTMLParagraphElement;
-const divHistorico = document.getElementById("historico") as HTMLDivElement;
-const divHistoricoList = document.getElementById("historico-list") as HTMLDivElement;
+const divCalculosRealizados = document.getElementById("calculosRealizadas") as HTMLDivElement;
+const divCalculosRealizadosList = document.getElementById("lista-calculos-Realizados") as HTMLDivElement;
+
+const btnMostrarHistorico = document.getElementById("btnMostrarHistorico") as HTMLInputElement;
+const divhistorico = document.getElementById("historico") as HTMLDivElement;
+const divhistoricoLista = document.getElementById("historico-list") as HTMLDivElement;
 
 const txtPrimeiroValor = document.getElementById("numero1") as HTMLInputElement;
 const txtSegundoValor = document.getElementById("numero2") as HTMLInputElement;
@@ -27,19 +31,19 @@ function RealizarAlteracao() : void{
 
   txtResultado.innerHTML = resultado.toString();
 
-  AtualizarHistorico(calculadora.ObterHistorico());
+  AtualizarHistorico(calculadora.OperacoesRealizadas());
 }
 
 function AtualizarHistorico(historio : string[]) : void{
 
   if(historio.length == 0) {
-    divHistorico.style.display = 'none';
+    divCalculosRealizados.style.display = 'none';
     return;
   }
   
-  divHistorico.classList.remove('d-none');
+  divCalculosRealizados.classList.remove('d-none');
 
-  divHistoricoList.innerHTML = "";
+  divCalculosRealizadosList.innerHTML = "";
   
   historio.forEach(function (value) {
 
@@ -47,8 +51,35 @@ function AtualizarHistorico(historio : string[]) : void{
 
     p.innerHTML = value;
 
-    divHistoricoList.prepend(p);
+    divCalculosRealizadosList.prepend(p);
 
   }); 
   
+}
+
+// Mostrar histórico
+btnMostrarHistorico?.addEventListener('click', MostarHistorico)
+
+function MostarHistorico() : void{
+
+  const historico = calculadora.ObterHistorico();
+
+  if(historico.length == 0) {
+    divhistorico.style.display = 'none';
+    return;
+  }
+  
+  divhistorico.classList.remove('d-none');
+
+  divhistoricoLista.innerHTML = "";
+  
+  historico.forEach(function (value) {
+
+    let p = document.createElement("p");
+
+    p.innerHTML = value;
+
+    divhistoricoLista.prepend(p);
+
+  }); 
 }

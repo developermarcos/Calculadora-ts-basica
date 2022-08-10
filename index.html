@@ -12,10 +12,9 @@
 </head>
 <body class="vh-100 d-flex align-items-center bg-primary bg-gradient">
     <section class="container">
-      <div class="row justify-content-around">
-        <div class="col-md-4 bg-white p-4 rounded">
+      <div class="row justify-content-around gap-3">
+        <div class="col-md-3 bg-white p-4 rounded">
           <h1>Calculador</h1>
-          
             <div class="mb-3">
               <label class="form-label" for="">Numero 1</label>
               <input class="form-control" id="numero1" type="number">
@@ -32,15 +31,22 @@
               <label class="form-label" for="">Numero 2</label>
               <input class="form-control" id="numero2" type="number">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-between">
               <input id="btnCalcular" type="button" class="btn btn-dark" value="Calcular">
+              <input id="btnMostrarHistorico" type="button" class="btn btn-dark" value="Histórico">
             </div>
           
           <div class="mb-3 fw-bolder">
             <label class="form-label" for="">Resultado: </label><p id="resultado"></p>
           </div>
         </div>
-        <div class="col-md-4 d-none bg-white p-4 rounded fw-bolder" id="historico">
+        <div class="col-md-3 d-none bg-white p-4 rounded fw-bolder" id="calculosRealizadas">
+          <h1>Calculos Realizados</h1>
+          <div id="lista-calculos-Realizados" class="alert alert-info">
+            <p>Nenhum histórico disponível</p>
+          </div>
+        </div>
+        <div class="col-md-3 d-none bg-white p-4 rounded fw-bolder" id="historico">
           <h1>Histórico</h1>
           <div id="historico-list" class="alert alert-info">
             <p>Nenhum histórico disponível</p>

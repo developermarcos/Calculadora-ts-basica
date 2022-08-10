@@ -1,8 +1,9 @@
 export class Calculadora{
   
   private historico : string[];
-
+  
   constructor(){
+    // this.historico = JSON.parse(localStorage.getItem('historico') || '[]');
     this.historico = [];
   }
 
@@ -27,10 +28,27 @@ export class Calculadora{
     
     this.historico.push(operacao);
 
+    this.SalvarHistoricoLocalStorage(operacao);
+    
     return resultado;
+  }
+
+  OperacoesRealizadas() : string[]{
+    return this.historico;
   }
   
   ObterHistorico() : string[]{
-    return this.historico;
+    return JSON.parse(localStorage.getItem('historico') || '[]');
+  }
+
+  SalvarHistoricoLocalStorage(operacao : string) : void{
+
+    let historico = JSON.parse(localStorage.getItem('historico') || '[]');
+    
+    historico.push(operacao);
+
+    localStorage.removeItem("historico");
+
+    localStorage.setItem('historico', JSON.stringify(historico));
   }
 }
