@@ -25,7 +25,7 @@ function AtualizarHistorico(historio) {
         divHistorico.style.display = 'none';
         return;
     }
-    divHistorico.style.display = 'block';
+    divHistorico.classList.remove('d-none');
     divHistoricoList.innerHTML = "";
     historio.forEach(function (value) {
         let p = document.createElement("p");

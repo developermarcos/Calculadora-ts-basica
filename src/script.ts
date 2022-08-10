@@ -37,7 +37,7 @@ function AtualizarHistorico(historio : string[]) : void{
     return;
   }
   
-  divHistorico.style.display = 'block';
+  divHistorico.classList.remove('d-none');
 
   divHistoricoList.innerHTML = "";
   

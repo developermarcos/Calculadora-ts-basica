@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Básica</title>
+  <link rel="stylesheet" href="./dist/assets/css/style.css">
+  <script type="module" src="./dist/assets/js/script.js" defer></script>
+</head>
+<body>
+    <section class="container">
+      <div class="calculadora">
+        <div class="molde">
+          <h1>Calculador</h1>
+          <div>
+            <label for="">Numero 1</label>
+            <input id="numero1" type="number">
+      
+            <label for="">Selecione a operação</label>
+            <select id="operacoes">
+              <option value="valor1">Operações</option>
+              <option value="+">+ (Soma)</option>
+              <option value="-">- (Subtração)</option>
+              <option value="*">* (Multiplicação)</option>
+              <option value="/">/ (Divisão)</option>
+            </select>
+      
+            <label for="">Numero 2</label>
+            <input id="numero2" type="number">
+      
+            <input id="btnCalcular" type="button" value="Calcular">
+          </div>
+          <div>
+            <label for="">Resultado: </label><p id="resultado"></p>
+          </div>
+        </div>
+        <div id="historico">
+          <h1>Histórico</h1>
+          <div id="historico-list">
+            <p>Nenhum histórico disponível</p>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
