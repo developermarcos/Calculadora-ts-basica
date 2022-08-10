@@ -74,3 +74,7 @@ div.calculadora > div.molde > :nth-child(3) > p{
   margin: 0;
   padding: 0.5%;
 }
+
+#historico{
+  display: none;
+}

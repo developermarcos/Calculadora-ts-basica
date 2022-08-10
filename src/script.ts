@@ -4,6 +4,7 @@ import { Calculadora } from "./Calculadora.js";
 const btnCalcular = document.getElementById("btnCalcular") as HTMLInputElement;
 const txtResultado = document.getElementById("resultado") as HTMLParagraphElement;
 const divHistorico = document.getElementById("historico") as HTMLDivElement;
+const divHistoricoList = document.getElementById("historico-list") as HTMLDivElement;
 
 const txtPrimeiroValor = document.getElementById("numero1") as HTMLInputElement;
 const txtSegundoValor = document.getElementById("numero2") as HTMLInputElement;
@@ -22,22 +23,32 @@ function RealizarAlteracao() : void{
     operador : txtoperador.options[txtoperador.selectedIndex].value
   }
   
-  calculadora.first = Number(txtPrimeiroValor.value);
-  calculadora.second = Number(txtSegundoValor.value),
-  calculadora.operador = txtoperador.options[txtoperador.selectedIndex].value;
-
-  const resultado : number  = calculadora.Resultado();
+  const resultado : number  = calculadora.Resultado(calculo);
 
   txtResultado.innerHTML = resultado.toString();
 
-  AtualizarHistorico(calculadora.ListarHistorico());
+  AtualizarHistorico(calculadora.ObterHistorico());
 }
 
-function AtualizarHistorico(historio : string[]) {
-  divHistorico.innerHTML = "";
-  historio.forEach(function (value) {
-    console.log("aqui");
-    divHistorico.innerHTML += ("<p>" + value + "</p>");
-  }); 
+function AtualizarHistorico(historio : string[]) : void{
 
+  if(historio.length == 0) {
+    divHistorico.style.display = 'none';
+    return;
+  }
+  
+  divHistorico.style.display = 'block';
+
+  divHistoricoList.innerHTML = "";
+  
+  historio.forEach(function (value) {
+
+    let p = document.createElement("p");
+
+    p.innerHTML = value;
+
+    divHistoricoList.prepend(p);
+
+  }); 
+  
 }

@@ -1,43 +1,36 @@
 export class Calculadora{
-  first? : number;
-  second? : number;
-  operador?: string;
+  
   private historico : string[];
 
-  constructor(Calculo? : {first: number, second : number, operador : string}){
-    this.first = Calculo?.first;
-    this.second = Calculo?.second;
-    this.operador = Calculo?.operador;
+  constructor(){
     this.historico = [];
   }
 
-  Resultado() : number{
+  Resultado(Calculo : {first: number, second : number, operador : string}) : number{
 
-    if(!this.first || !this.second || !this.operador)
-      return 0;
     let resultado : number = 0;
 
-    if(this.operador == "/" && this.second == 0)
+    if(Calculo.operador == "/" && Calculo.second == 0)
       resultado;
 
-    switch(this.operador){
-      case "+": resultado = this.first + this.second; break;
+    switch(Calculo.operador){
+      case "+": resultado = Calculo.first + Calculo.second; break;
   
-      case "-": resultado = this.first - this.second; break;
+      case "-": resultado = Calculo.first - Calculo.second; break;
   
-      case "*": resultado = this.first * this.second; break;
+      case "*": resultado = Calculo.first * Calculo.second; break;
   
-      case "/": resultado = this.first / this.second; break;
+      case "/": resultado = Calculo.first / Calculo.second; break;
     }
 
-    let operacao = this.first+" "+this.operador+" "+this.second+" : "+resultado;
+    let operacao = `${Calculo.first} ${Calculo.operador} ${Calculo.second} = ${resultado}`;
     
     this.historico.push(operacao);
 
     return resultado;
   }
   
-  ListarHistorico() : string[]{
+  ObterHistorico() : string[]{
     return this.historico;
   }
 }
